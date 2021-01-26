@@ -5,3 +5,10 @@ duration="1000" class="swiper">
       <image src="{{item.url}}" class="img" mode="scaleToFill"></image>
   </swiper-item>
 </swiper>
+
+<text class="title">场景歌单</text>
+<view class="playlist-container">
+  <block wx:for="{{playlist}}" wx:key="id">
+    <xu-playlist playlist="{{item}}"></xu-playlist>
+  </block>
+</view>
