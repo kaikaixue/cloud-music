@@ -1,0 +1,11 @@
+/* components/musiclist/musiclist.wxss */
+.my-musiclist{
+  width:1000rpx;
+  height: 50rpx;
+  background-color: white;
+  margin: 0rpx 0rpx 0rpx 0rpx;
+}
+
+.musiclist-name{
+  font-size: 40rpx;
+}

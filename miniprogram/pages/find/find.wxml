@@ -1,5 +1,4 @@
 <!--pages/find/find.wxml-->
-<text>pages/find/find.wxml</text>
 <view>
   <block wx:for="{{cards}}">
     <my-card></my-card>

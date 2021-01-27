@@ -1,4 +1,7 @@
 // pages/music/music.js
+
+const MAX_LIMIT = 15
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -36,50 +39,51 @@ Page({
       url:'http://p1.music.126.net/9Ayx-EeCnuLRWKTcIhGB6g==/109951165664742856.jpg?imageView&quality=89',
     },
     ],
-    playlist:[{
-      "id":"1001",
-      "playCount":1.4641238e+06,
-      "name":"[华语速爆新歌] 那英×姚晨首度联手合唱",
-      "priUrl":"http://p1.music.126.net/qfKmb5grEFZNTGYKIONg1A==/109951165664253358.jpg?param=140y140",
-    },
-    {
-      "id":"1002",
-      "playCount":1985,
-      "name":"谷阿莫：5分钟听完电影《最普通的恋爱》",
-      "priUrl":"http://p1.music.126.net/G8lutIIOcFVwMgR5O9HcSg==/109951165663415422.jpg?param=140y140"
-    },
-    {
-      "id":"1003",
-      "playCount":622822.6,
-      "name":"【翻/原】温柔不是我说 而是你觉得.",
-      "priUrl":"http://p1.music.126.net/PJylNWy_2-jI7LRgQ2Cm6w==/109951165649129522.jpg?param=140y140"
-    },
-    {
-      "id":"1004",
-      "playCount":115624,
-      "name":"随情节流淌|富有叙事感的柔软音乐片段",
-      "priUrl":"http://p1.music.126.net/1hzImIzOsRzG0iBSvHOO7w==/109951165511341127.jpg?param=140y140"
-    },
-    {
-      "id":"1005",
-      "playCount":495154,
-      "name":"我试着把孤独藏进耳机",
-      "priUrl":"http://p1.music.126.net/Xvo6PwBcdOA69ipcpV9YYg==/109951165463253777.jpg?param=140y140"
-    },
-    {
-      "id":"1006",
-      "playCount":510215,
-      "name":"2021·心里装着鲜花银河星光和我爱的人",
-      "priUrl":"http://p1.music.126.net/O8LkkfC7PtV7TA4UP693XA==/109951164569667332.jpg?param=140y140"
-    }
-  ]
+    playlist:[]
+  //   playlist:[{
+  //     "id":"1001",
+  //     "playCount":1.4641238e+06,
+  //     "name":"[华语速爆新歌] 那英×姚晨首度联手合唱",
+  //     "priUrl":"http://p1.music.126.net/qfKmb5grEFZNTGYKIONg1A==/109951165664253358.jpg?param=140y140",
+  //   },
+  //   {
+  //     "id":"1002",
+  //     "playCount":1985,
+  //     "name":"谷阿莫：5分钟听完电影《最普通的恋爱》",
+  //     "priUrl":"http://p1.music.126.net/G8lutIIOcFVwMgR5O9HcSg==/109951165663415422.jpg?param=140y140"
+  //   },
+  //   {
+  //     "id":"1003",
+  //     "playCount":622822.6,
+  //     "name":"【翻/原】温柔不是我说 而是你觉得.",
+  //     "priUrl":"http://p1.music.126.net/PJylNWy_2-jI7LRgQ2Cm6w==/109951165649129522.jpg?param=140y140"
+  //   },
+  //   {
+  //     "id":"1004",
+  //     "playCount":115624,
+  //     "name":"随情节流淌|富有叙事感的柔软音乐片段",
+  //     "priUrl":"http://p1.music.126.net/1hzImIzOsRzG0iBSvHOO7w==/109951165511341127.jpg?param=140y140"
+  //   },
+  //   {
+  //     "id":"1005",
+  //     "playCount":495154,
+  //     "name":"我试着把孤独藏进耳机",
+  //     "priUrl":"http://p1.music.126.net/Xvo6PwBcdOA69ipcpV9YYg==/109951165463253777.jpg?param=140y140"
+  //   },
+  //   {
+  //     "id":"1006",
+  //     "playCount":510215,
+  //     "name":"2021·心里装着鲜花银河星光和我爱的人",
+  //     "priUrl":"http://p1.music.126.net/O8LkkfC7PtV7TA4UP693XA==/109951164569667332.jpg?param=140y140"
+  //   }
+  // ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this._getPlaylist()
   },
 
   /**
@@ -129,5 +133,20 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  _getPlaylist() {
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.cloud.callFunction({
+      name: 'playlist'
+    }).then((res) => {
+      console.log(res)
+      this.setData({
+        playlist: res.result
+      })
+      wx.hideLoading()
+    })
+  },
 })

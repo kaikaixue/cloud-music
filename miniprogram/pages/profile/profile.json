@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "my-musiclist":"/components/musiclist/musiclist"
+  },
   "navigationBarTitleText":"我的"
 }

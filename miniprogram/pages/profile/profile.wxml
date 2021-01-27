@@ -1,2 +1,6 @@
 <!--pages/profile/profile.wxml-->
-<text>pages/profile/profile.wxml</text>
+<view>
+  <block wx:for="{{musiclist}}">
+    <my-musiclist musiclist="{{item}}"></my-musiclist>
+  </block>
+</view>
