@@ -74,6 +74,13 @@
         {
           "name": "pages/profile/profile",
           "pathName": "pages/profile/profile",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "musiclist",
+          "pathName": "pages/musiclist/musiclist",
+          "query": "playlistId=171703222",
           "scene": null
         }
       ]

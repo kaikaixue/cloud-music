@@ -52,9 +52,9 @@ exports.main = async (event, context) => {
     //异步调用云数据库的新增操作
     await playlistCollection.add({
       data:[...newData]
-    }).then((res) =>{
+    }).then((res) => {
       console.log('插入成功')
-    }).catch((res) => {
+    }).catch((err) => {
       console.log(err)
       console.error('插入失败')
     })
