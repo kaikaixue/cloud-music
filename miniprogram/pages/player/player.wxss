@@ -47,6 +47,11 @@
   background: url(https://xuekaikai.oss-cn-shanghai.aliyuncs.com/needle.png) no-repeat center/contain;
   transform: rotate(-15deg);
   transform-origin: 24rpx 10rpx;
+  transition: transform 0.8s ease;
+}
+
+.playing.player-disc::after{
+  transform: rotate(0deg);
 }
 
 .player-img{
@@ -77,7 +82,23 @@
   font-size: 80rpx;
 }
 
-.icon-bofang, .icon-zanting1{
+.icon-bofang, .icon-zanting{
   font-size: 120rpx;
   margin: 0 50rpx;
+}
+
+.zhuan{
+  animation: disc 12s linear infinite;
+}
+@keyframes disc{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+.ting{
+  animation-play-state: paused;
 }
