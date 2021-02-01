@@ -44,7 +44,7 @@
   position: absolute;
   top: -150rpx;
   left: 266rpx;
-  background: url(https://xuekaikai.oss-cn-shanghai.aliyuncs.com/needle.png) no-repeat center/contain;
+  background: url(https://xuekaikai.oss-cn-shanghai.aliyuncs.com/zhen.png) no-repeat center/contain;
   transform: rotate(-15deg);
   transform-origin: 24rpx 10rpx;
   transition: transform 0.8s ease;
@@ -101,4 +101,12 @@
 
 .ting{
   animation-play-state: paused;
+}
+
+.progress-bar{
+  width: 90%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 24%;
 }

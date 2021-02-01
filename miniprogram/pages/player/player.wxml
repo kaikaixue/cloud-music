@@ -15,3 +15,8 @@
     <text class="iconfont icon-next" bind:tap="onNext"></text>
   </view>
 </view>
+
+<!--进度条-->
+<view class="progress-bar">
+  <xue-progress-bar bind:musicEnd="onNext"/>
+</view>
