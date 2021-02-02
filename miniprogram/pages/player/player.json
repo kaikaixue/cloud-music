@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "xue-progress-bar":"/components/progress-bar/progress-bar"
+    "xue-progress-bar":"/components/progress-bar/progress-bar",
+    "xue-lyric":"/components/lyric/lyric"
   }
 }
